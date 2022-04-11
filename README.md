@@ -1,2 +1,6 @@
-# Two-Wheels-Self-Balanced-Robot
-In this Repository I'm gonna store results and MATLAB files developed for LABORATORIO - MECCATRONICA - PROJECT
+## Two-Wheels Self-Balanced Robot
+
+> Attenzione : La compresione del seguente progetto richiede basi solide di Meccanica Lagrangiana.
+
+Introduzione al modello matematico del robot e stesura di un controllore.
+
