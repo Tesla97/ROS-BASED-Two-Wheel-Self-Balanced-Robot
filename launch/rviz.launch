@@ -1,0 +1,16 @@
+<launch>
+    <param name="robot_description" command="$(find xacro)/xacro '$(find smr_pkg)/description/urdf/TwoWheelSelf.urdf.xacro'"/>
+    <!-- Load Parameters to Parameter Server-->
+    <rosparam command="load" file="$(find smr_pkg)/param/param.yaml" />
+    <node  name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+    <node  name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+    <node  name="rviz" pkg="rviz" type="rviz" args=" -d $(find smr_pkg)/config/rvizConf.rviz" required="true" /> 
+    <!-- Start Gazebo with an empty world -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+    <!-- Spawn a smr in Gazebo, taking the description from the parameter server -->
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-R -0.05 -param robot_description -urdf -model smr" /> 
+    <!-- Launch Kalman Filter -->
+    <node pkg="smr_pkg" type="ExtendedKalmanFilter.py" name="extimator" />
+    <!-- Launch Controller -->
+    <node pkg="smr_pkg" type="StateControl.py"         name="contoller" />
+</launch>
