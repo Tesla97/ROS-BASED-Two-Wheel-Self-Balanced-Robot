@@ -1,0 +1,430 @@
+<?xml version="1.0" ?>
+    <robot name="twsbr">
+
+         <link name="base_footprint" />
+
+         <link name="base_link">
+             <visual>
+                 <geometry>
+                    <box size="0.18 0.08 0.003" />
+                 </geometry>
+                 <material name="blue">
+                    <color rgba="0 0 1 1" />
+                 </material>
+             </visual>
+             <collision>
+                 <geometry>
+                     <box size="0.18 0.08 0.003" />
+                 </geometry>
+             </collision>
+             <inertial>
+                 <mass value="0.40" />
+                 <inertia  ixx="0"        iyx="0"          izx="0"
+                           ixy="0"        iyy="0"          izy="0"
+                           ixz="0"        iyz="0"          izz="0.0012933" />
+             </inertial>
+         </link>
+
+         <joint name="base_joint" type="fixed">
+             <parent link="base_footprint" />
+             <child  link="base_link" />
+             <origin xyz ="0 0 0" rpy="0 0 0" />
+         </joint>
+
+         <link name="first_level">
+             <visual>
+                 <geometry>
+                     <box size="0.18 0.08 0.003" />
+                 </geometry>
+                 <material name="blue" />
+             </visual>
+             <collision>
+                 <geometry>
+                     <box size="0.18 0.08 0.003" />
+                 </geometry>
+             </collision>
+             <inertial>
+                 <mass value="0.25" />
+                 <inertia  ixx="0.0008333"   iyx="0"         izx="0"
+                           ixy="0"           iyy="0.0008333" izy="0"
+                           ixz="0"           iyz="0"         izz="0.0012933" />
+             </inertial>
+         </link>
+
+         <joint name="first_base_joint" type="fixed">
+             <parent link="base_link" />
+             <child  link="first_level" />
+             <origin xyz ="0 0 0.10" rpy="0 0 0" />
+         </joint>
+
+         <link name="second_level">
+             <visual>
+                 <geometry>
+                     <box size="0.18 0.08 0.003" />
+                 </geometry>
+                 <material name="blue" />
+             </visual>
+            <collision>
+                 <geometry>
+                     <box size="0.18 0.08 0.003" />
+                 </geometry>
+             </collision>
+             <inertial>
+                 <mass value="0.20" />
+                 <inertia  ixx="0.0042"    iyx="0"           izx="0"
+                           ixy="0"         iyy="0.0042"    izy="0"
+                           ixz="0"         iyz="0"        izz="0.0012933" />
+             </inertial>
+         </link>
+
+         <joint name="second_base_joint" type="fixed">
+             <parent link="base_link" />
+             <child  link="second_level" />
+             <origin xyz ="0 0 0.25" rpy="0 0 0" />
+         </joint>
+
+         <link name="cylinder_1">
+             <visual>
+                 <geometry>
+                     <cylinder length="0.25" radius="0.005" />
+                 </geometry>
+                 <material name="black">
+                     <color rgba="0 0 0 1" />
+                 </material>
+             </visual> 
+            <collision>
+                <geometry>
+                    <cylinder length="0.25" radius="0.005" />
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="0.0625" />
+                <inertia  ixx="0.0013"   iyx="0"        izx="0"
+                          ixy="0"        iyy="0.0013"   izy="0"
+                          ixz="0"        iyz="0"        izz="5.20833e-7" />
+            </inertial>
+         </link>
+
+         <joint name="cylynder1_base_joint" type="fixed">
+             <parent link="base_link" />
+             <child  link="cylinder_1" />
+             <origin xyz ="0.08 0.03 0.125" rpy="0 0 0" />
+         </joint>
+
+         <link name="cylinder_2">
+             <visual>
+                 <geometry>
+                     <cylinder radius="0.005" length="0.25" />
+                 </geometry>
+                 <material name="black" />
+             </visual>
+            <collision>
+                <geometry>
+                    <cylinder length="0.25" radius="0.005" />
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="0.0625" />
+                <inertia  ixx="0.0013" iyx="0"        izx="0"
+                          ixy="0"        iyy="0.0013" izy="0"
+                          ixz="0"        iyz="0"        izz="5.20833e-7" />
+            </inertial>
+         </link>
+
+         <joint name="cylinder2_base_joint" type="fixed">
+             <parent link="base_link" />
+             <child  link="cylinder_2" />
+             <origin xyz ="0.08 -0.03 0.125" rpy0="0 0 0" />
+         </joint>
+
+         <link name="cylinder_3">
+             <visual>
+                 <geometry>
+                     <cylinder radius="0.005" length="0.25" />
+                 </geometry>
+                 <material name="black" />
+             </visual>
+            <collision>
+                <geometry>
+                    <cylinder length="0.25" radius="0.005" />
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="0.0625" />
+                <inertia  ixx="0.0013" iyx="0"        izx="0"
+                          ixy="0"        iyy="0.0013" izy="0"
+                          ixz="0"        iyz="0"        izz="5.20833e-7" />
+            </inertial>
+         </link>
+
+         <joint name="cylinder3_base_joint" type="fixed">
+             <parent link="base_link" />
+             <child  link="cylinder_3" />
+             <origin xyz ="-0.08 0.03 0.125" rpy0="0 0 0" />
+         </joint>
+
+         <link name="cylinder_4">
+             <visual>
+                 <geometry>
+                     <cylinder radius="0.005" length="0.25" />
+                 </geometry>
+                 <material name="black" />
+             </visual>
+            <collision>
+                <geometry>
+                    <cylinder length="0.25" radius="0.005" />
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="0.0625" />
+                <inertia  ixx="0.0013" iyx="0"        izx="0"
+                          ixy="0"        iyy="0.0013" izy="0"
+                          ixz="0"        iyz="0"        izz="5.20833e-7" />
+            </inertial>
+         </link>
+         
+
+         <joint name="cylinder4_base_joint" type="fixed">
+             <parent link="base_link" />
+             <child  link="cylinder_4" />
+             <origin xyz ="-0.08 -0.03 0.125" rpy0="0 0 0" />
+         </joint>
+
+         <link name="right_wheel">
+             <visual>
+                 <geometry>
+                      <cylinder length="0.0125" radius="0.0325" />
+                 </geometry> 
+                 <material name="black" />
+             </visual>
+             <collision>
+                <geometry>
+                    <cylinder length="0.0125" radius="0.0325" />
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="0.1" />
+                <inertia  ixx="5.28125e-5" iyx="0"          izx="0"
+                          ixy="0"          iyy="2.77083e-5" izy="0"
+                          ixz="0"          iyz="0"          izz="2.77083e-5" />
+            </inertial>
+         </link>
+
+         <joint name="right_wheel_base_joint" type="continuous">
+              <axis xyz="0 0 1"/>
+              <parent link="base_link" />
+              <child  link="right_wheel" />
+              <origin xyz ="0.10 0 0" rpy="-1.5708 0 -1.5708" /> 
+         </joint>
+
+        <link name="left_wheel">
+            <visual>
+                <geometry>
+                     <cylinder length="0.0125" radius="0.0325" />
+                </geometry> 
+                <material name="black" />
+            </visual>
+            <collision>
+                 <geometry>
+                     <cylinder length="0.0125" radius="0.0325" />
+                 </geometry>
+             </collision>
+             <inertial>
+                 <mass value="0.1" />
+                 <inertia  ixx="5.28125e-5" iyx="0"        izx="0"
+                           ixy="0"          iyy="2.77083e-5" izy="0"
+                           ixz="0"          iyz="0"          izz="2.77083e-5" />
+             </inertial>
+        </link>
+
+        <joint name="left_wheel_base_joint" type="continuous">
+             <axis xyz="0 0 1"/>
+             <parent link="base_link" />
+             <child  link="left_wheel" />
+             <origin xyz ="-0.10 0 0" rpy="-1.5708 0 -1.5708" /> 
+        </joint>
+
+        <!-- imu -->
+        <link name="imu_link">
+            <visual>
+                <geometry>
+                    <box size="0.03 0.03 0.003" />
+                </geometry>
+                <material name="black" />
+            </visual> 
+            <collision>
+                <geometry>
+                    <box size="0.03 0.03 0.003" />
+                </geometry>
+                <inertial>
+                    <mass value="0.005" />
+                    <inertia  ixx="1.66e-5" iyx="0"        izx="0"
+                              ixy="0"        iyy="1.66e-5" izy="0"
+                              ixz="0"        iyz="0"        izz="3.75e-7" />
+                </inertial>
+            </collision>
+        </link>
+
+        <joint name="imu_first_level_joint" type="fixed">
+            <parent link="first_level" />
+            <child  link="imu_link"  />
+            <axis   xyz ="0 0 0" />
+            <origin xyz ="0 0 0.001" rpy="0 0 0" />
+        </joint> 
+
+        <!-- Telecamera -->
+        <link name="camera_link">
+            <visual>
+                <geometry>
+                   <box size="0.03 0.03 0.03" />
+                </geometry>
+                <material name="black" />
+            </visual>
+            <collision>
+                <geometry>
+                   <box size="0.03 0.03 0.03" />
+                </geometry>
+                <inertial>
+                    <mass value="0.05" />
+                    <inertia  ixx="0.001041" iyx="0"        izx="0"
+                              ixy="0"         iyy="0.001041" izy="0"
+                              ixz="0"         iyz="0"        izz="3.75e-6" />  
+                </inertial>
+            </collision>
+        </link>
+
+        <joint name="camera_base_link_joint" type="fixed">
+            <parent link="second_level" />
+            <child  link="camera_link" />
+            <origin xyz="0 0 0.015" rpy="0 0 1.5908" />
+        </joint>
+
+        <!-- Send Colors to Gazebo Elements -->
+
+        <gazebo reference="camera_link">
+            <material>Gazebo/Black</material>
+        </gazebo>
+
+        <gazebo reference="right_wheel">
+            <material>Gazebo/Black</material>
+        </gazebo>
+
+        <gazebo reference="left_wheel">
+            <material>Gazebo/Black</material>
+        </gazebo>
+
+        <gazebo reference="cylinder_1">
+            <material>Gazebo/Black</material>
+        </gazebo>
+
+        <gazebo reference="cylinder_2">
+            <material>Gazebo/Black</material>
+        </gazebo>
+
+        <gazebo reference="cylinder_3">
+            <material>Gazebo/Black</material>
+        </gazebo>
+
+        <gazebo reference="cylinder_4">
+            <material>Gazebo/Black</material>
+        </gazebo>
+
+        <gazebo reference="base_link">
+            <material>Gazebo/Blue</material>
+        </gazebo>
+
+        <gazebo reference="first_level">
+            <material>Gazebo/Blue</material>
+        </gazebo>
+
+        <gazebo reference="second_level">
+            <material>Gazebo/Blue</material>
+        </gazebo>
+
+        <gazebo reference="imu_link">
+            <material>Gazebo/Black</material>
+        </gazebo>
+
+        <!-- Load Plugin -->
+
+
+        <gazebo reference="camera_link">
+            <sensor type="camera" name="camera1">
+            <update_rate>30.0</update_rate>
+            <camera name="head">
+              <horizontal_fov>1.3962634</horizontal_fov>
+              <image>
+                <width>800</width>
+                <height>800</height>
+                <format>R8G8B8</format>
+              </image>
+              <clip>
+              <near>0.02</near>
+              <far>300</far>
+              </clip>
+              <noise>
+                <type>gaussian</type>
+                <!-- Noise is sampled independently per pixel on each frame.
+                That pixel's noise value is added to each of its color
+                channels, which at that point lie in the range [0,1]. -->
+                <mean>0.0</mean>
+                <stddev>0.007</stddev>
+              </noise>
+            </camera>
+            <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+              <alwaysOn>true</alwaysOn>
+              <updateRate>0.0</updateRate>
+              <cameraName>rrbot/camera1</cameraName>
+              <imageTopicName>image_raw</imageTopicName>
+              <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+              <frameName>camera_link</frameName>
+              <hackBaseline>0.07</hackBaseline>
+              <distortionK1>0.0</distortionK1>
+              <distortionK2>0.0</distortionK2>
+              <distortionK3>0.0</distortionK3>
+              <distortionT1>0.0</distortionT1>
+              <distortionT2>0.0</distortionT2>
+            </plugin>
+            </sensor>
+        </gazebo>
+
+        <!-- imu _sensor -->
+        <gazebo reference="imu_link">
+            <gravity>true</gravity>
+            <sensor type="imu" name="imu_sensor">
+                <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+                    <alwaysOn>true</alwaysOn>
+                    <topicName>imu</topicName>
+                    <updateRateHZ>100.0</updateRateHZ>
+                    <bodyName>imu_link</bodyName>
+                    <noise>
+                        <type>gaussian</type>
+                        <mean>0.0</mean>
+                        <stddev>0.005</stddev>
+                    </noise>
+                    <gaussianNoise>0.0</gaussianNoise>
+                    <xyzOffset>0 0 0</xyzOffset>
+                    <rpyOffset>0 0 0</rpyOffset>
+                    <frameName>imu_link</frameName>
+                    <initialOrientationAsReference>false</initialOrientationAsReference>
+                </plugin>
+                <pose>0 0 0 0 0 0</pose>
+            </sensor>
+        </gazebo>
+
+        <gazebo>
+          <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+          <commandTopic>cmd_vel</commandTopic>
+          <odometryTopic>odom</odometryTopic>
+          <odometryFrame>odom</odometryFrame>
+          <leftJoint>left_wheel_base_joint</leftJoint>
+          <rightJoint>right_wheel_base_joint</rightJoint>
+          <robotBaseFrame>base_link</robotBaseFrame>
+          <wheelSeparation>0.22</wheelSeparation>
+          <wheelDiameter>0.06</wheelDiameter>
+          <wheelTorque>100</wheelTorque>
+          <publishWheelJointState>true</publishWheelJointState>
+          </plugin>
+        </gazebo>
+
+    </robot>
