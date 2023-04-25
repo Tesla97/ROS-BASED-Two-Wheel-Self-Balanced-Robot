@@ -11,4 +11,4 @@ Implementazione controllore ausiliario PID.
 
 Il robot è dotato di un modulo di percezione dell'ambiente esterno (LIDAR) con l'obiettivo di effettuare una mappatura dell'ambiente circostante (SLAM Problem)
 
-
+Il tutto è stato realizzato in Python ed in particolare delle metodologie messe a disposizione dallo pseudo-sistema operativo ROS (Robot Operating System).
