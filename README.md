@@ -9,6 +9,8 @@ Implementazione di un filtro di Kalman Esteso per la stima dello stato del proce
 Implementazione di un controllore LQ per la stabilizzazione del pendolo.
 Implementazione controllore ausiliario PID.
 
+Il tutto è stato prima simulato su Matlab e poi tradotto in codice Python.
+
 Il robot è dotato di un modulo di percezione dell'ambiente esterno (LIDAR) con l'obiettivo di effettuare una mappatura dell'ambiente circostante (SLAM Problem)
 
 Il tutto è stato realizzato in Python ed in particolare delle metodologie messe a disposizione dallo pseudo-sistema operativo ROS (Robot Operating System).
